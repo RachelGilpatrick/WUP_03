@@ -1,7 +1,7 @@
 ---
 title: "Alcohol vs Seat choice"
-author: "Your Name"
-date: "Fall 2020"
+author: "Rachel Gilpatrick"
+date: "14 Sept. 2021"
 output: html_document
 ---
 
@@ -37,7 +37,13 @@ basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='e
 
 ## Numerical Summarys 
 
+```{r}
+favstats(alcohol~Seat,data=ucdavis1)
+```
+
 ## Inferential Tests
+
+
 
 ## Conclusions
 
