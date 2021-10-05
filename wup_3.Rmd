@@ -18,6 +18,7 @@ davisdata <- read.csv(file="UCDavis.csv")
 ## you choose to sit in??
 
 $H_0$ There is no difference in alcohol consumption based on where one sits in class.
+
 $H_A$ There is a difference in alcohol consumption based on where one sits in class.
 
 ## Now with ggplot - first select the basic data
@@ -39,11 +40,15 @@ The box plot shows people who sit in the back tend to consume more alcohol and t
 basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Fancy notch boxplot \n with 2 lines")
 ```
 
+This boxplot shows the same data of students, those who sit in the back row drink significantly more then the front and middle rows, that show little difference.
+
 ## Numerical Summarys 
 
 ```{r}
 favstats(alcohol~Seat,data=ucdavis1)
 ```
+
+The table shows that the mean (average) of students that sit in the back row is at 8.555. The students that sit in the front and middle do not exceed 3.33. These averages are very different. The students that sit in the back are much more likely to be alcohol consumers.
 
 ## Inferential Tests
 
@@ -56,10 +61,11 @@ summary.aov(model1)
 plot(TukeyHSD(model1))
 ```
 
-First we got a p-value of 0.00small so we conclude we reject $H_0$; there is a difference in alcohol consumption based on where one sits.
-
-Tukey tests shows 
+We have a p-value of 0.000116, so we reject the $H_0$; there is a difference in alcohol consumption based on where one sits. The tukey test show that the confidence interval contains 0 for Middle-Front. We have no evidence of any difference of alcohol consumption between the students that sit in the middle and the students that sit in the front. 
+Tukey tests shows a significant difference between the confidence level for students that sit in the back rows. 
 
 ## Conclusions
+
+Those who consumed the most alcohol sat in the back row, so we reject the null hypothesis, because there is difference in the amount of alcohol consumption with the students that sit in the back row.
 
 
